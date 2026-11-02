@@ -1,0 +1,31 @@
+name: Plant my farm
+
+on:
+  schedule:
+    - cron: "17 3 * * *" # every day
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  farm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: FelipeBeltranING/gitfarm@v1
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          output: dist/farm.svg
+          # crop: auto            # or corn, sunflower, tomato, coffee, strawberry, pumpkin, cacao, carrot, rice, wheat, avocado (comma separated)
+          # season: auto          # or none, spring, summer, autumn, winter, rainy, dry, auto-south
+          # time: auto            # or day, night
+          # timezone: America/Bogota
+
+      - uses: crazy-max/ghaction-github-pages@v4
+        with:
+          target_branch: output
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
