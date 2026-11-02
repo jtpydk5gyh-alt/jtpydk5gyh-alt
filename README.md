@@ -1,1 +1,1 @@
-![My GitHub farm](https://raw.githubusercontent.com/jtpydk5gyh-alt/jtpydk5gyh-altoutput/farm.svg)
+![My GitHub farm](https://raw.githubusercontent.com/jtpydk5gyh-alt/jtpydk5gyh-alt/output/farm.svg)
